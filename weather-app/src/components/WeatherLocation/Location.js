@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import './style.css';
 // const Location = (props) =>{
 //     //destructuring
 //     //busca el valor de la propiedad city del objeto props y 
@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 // del metodo y de igual manarea se creará una variable con el mismos nombre
 const Location = ({city}) =>{
     return (
-    <div> <h1>{city}</h1> </div>
+    <div className="LocationCont" > <h1>{city}</h1> </div>
     );
 };
     

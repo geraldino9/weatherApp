@@ -18,10 +18,13 @@ const icons ={
 
 const getWeatherIcon = weatherState => {
     const icon = icons[weatherState];
+
+    const sizeIcons = "4x";
+
     if(icon)
-        return <WeatherIcons name={icon} size="2x"/>
+        return <WeatherIcons className="wIcon" name={icon} size={sizeIcons}/>
     else
-        return <WeatherIcons name={"day-sunny"} size="2x"/>    
+        return <WeatherIcons className="wIcon" name={"day-sunny"} size={sizeIcons}/>    
 }
 
 
@@ -30,7 +33,8 @@ const WeatherTemparture = ({temperature,weatherState}) =>(
         {
             getWeatherIcon(weatherState)
         }        
-        <span>{`${temperature}°`}</span>
+        <span className="temperature">{`${temperature}`}</span>
+        <span className="temperatureType">{`C°`}</span>
     </div>
 );
 
