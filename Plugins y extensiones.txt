@@ -1,2 +1,8 @@
 vscode-icons
 Reactjs code snippets
+EsLint
+
+
+
+api key del clima
+94a363d8c9c8182e49f359dfc53d8033
