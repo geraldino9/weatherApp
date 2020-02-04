@@ -16,7 +16,7 @@ const cities =[
 
 class  App extends Component {
   handleonWeatherLocation = city =>{
-    console.log("handleonWeatherLocation");
+    console.log(`handleonWeatherLocation ${city}`);
   }
 render(){
   
