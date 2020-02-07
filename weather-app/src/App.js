@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
-import {createStore} from 'redux';
+
+
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 
-import LocationList from './components/LocationList';
+
 import ForeCastExtended from './components/ForeCastExtended';
+import LocationListContainer from './containers/LocationListContainer';
+
+
+
+
 
 import './App.css';
 import { render } from '@testing-library/react';
@@ -23,10 +29,7 @@ const cities =[
 ];
 
 
-const store = createStore( ()=> {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-// actionCreator
-const setCity  = value => ( { type: 'setCity', value} );
 
 class  App extends Component {
 
@@ -39,13 +42,7 @@ class  App extends Component {
 
 
 
-  handleonWeatherLocation = city =>{
-    this.setState({
-      city,
-    });
-    console.log(`handleonWeatherLocation ${city}`);
-    store.dispatch(setCity(city));
-  }
+
 render(){
     const {city} = this.state;
     return (
@@ -62,7 +59,7 @@ render(){
         </Row>
         <Row>
           <Col xs={12} md={6}>
-            <LocationList cities={cities} onSelectedLocation={this.handleonWeatherLocation}/>
+          <LocationListContainer cities={cities}/>
           </Col>
           <Col xs={12} md={6}>
             <Paper elevation={4}>
@@ -82,6 +79,7 @@ render(){
   
 }
 
-export default App;
 
+
+export default App;
 
