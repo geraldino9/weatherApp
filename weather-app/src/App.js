@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
+import {createStore} from 'redux';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -21,6 +22,12 @@ const cities =[
   'Washington,us',
 ];
 
+
+const store = createStore( ()=> {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+// actionCreator
+const setCity  = value => ( { type: 'setCity', value} );
+
 class  App extends Component {
 
   constructor(){
@@ -37,6 +44,7 @@ class  App extends Component {
       city,
     });
     console.log(`handleonWeatherLocation ${city}`);
+    store.dispatch(setCity(city));
   }
 render(){
     const {city} = this.state;
